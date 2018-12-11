@@ -1,0 +1,6 @@
+[
+  {
+    "caption": "Scalafmt: Format Code",
+    "command": "scalafmt_run"
+  }
+]
