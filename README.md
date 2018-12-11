@@ -15,7 +15,9 @@ Sublime Text 3 plugin to invoke scalafmt, a code formatter for Scala.
 Create `scalafmt_ng` binary somewhere in your `PATH`, for instance in `/usr/local/bin`:
 
 ```
-coursier bootstrap --standalone com.geirsson:scalafmt-cli_2.12:1.5.1 -r bintray:scalameta/maven -o /usr/local/bin/scalafmt_ng -f --main com.martiansoftware.nailgun.NGServer
+coursier bootstrap --standalone com.geirsson:scalafmt-cli_2.12:1.5.1 \
+  -r bintray:scalameta/maven -o /usr/local/bin/scalafmt_ng \
+  -f --main com.martiansoftware.nailgun.NGServer
 ```
 
 Make sure you use the same version of nailgun in the client `ng` and the one packaged in `com.geirsson:scalafmt-cli`.
