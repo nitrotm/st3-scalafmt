@@ -97,12 +97,15 @@ class Formatter(object):
   def spawn(self, delay=2):
     self.terminate()
     st_status_message('spawning nailgun deamon...')
+    script = sublime.load_resource('Packages/ScalafmtEnhanced/scripts/nailgun.py')
     self.server = subprocess.Popen(
-      [sys.executable or 'python3', os.path.join(os.path.dirname(__file__), 'scripts', 'nailgun.py')],
-      stdin=None,
+      [sys.executable or 'python3'],
+      stdin=subprocess.PIPE,
       stdout=None,
       stderr=None
     )
+    self.server.stdin.write(bytes(script, 'utf-8'))
+    self.server.stdin.close()
     if not self.is_ready(delay):
       self.terminate()
       st_status_message('nailgun deamon cannot be started')
